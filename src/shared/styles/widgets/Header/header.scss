@@ -1,0 +1,19 @@
+.header {
+	.header__content {
+		.header__nav {
+			.header__link {
+				text-decoration: none;
+				transition: color .3s ease-in-out;
+				@include textStyle(400, 20px, 20px, #fff);
+
+				&:hover {
+					color: $aquamarineColor;
+				}
+			}
+
+			.active {
+				color: $aquamarineColor;
+			}
+		}
+	}
+}

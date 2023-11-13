@@ -1,0 +1,13 @@
+@import '../../shared/styles/styles.scss';
+
+html, body {
+	font-family: 'Roboto Condensed', sans-serif;
+	min-width: 320px;
+	height: max-content;
+	background-color: rgb(2, 34, 61);
+
+	#root {
+		height: 100vh;
+	}
+}
+

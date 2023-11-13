@@ -1,0 +1,82 @@
+import FilterSelect from "../../shared/select";
+import {useAppDispatch, useAppSelector} from "../../features/hooks";
+import {sortNumbers} from "../../features/func/sortNumbers";
+import React, {useState} from "react";
+import {ButtonUi} from "../../shared/ui/ButtonUi";
+import {fetchVehicles, filteredClass, filteredLevel, filteredNation} from "../../app/store/shipsSlices";
+import {removeDoubleString, removeDoubleNumber} from "../../features/func/removeDouble";
+
+const Filter = () => {
+    const [shipNationValue, setShipNationValue] = useState<string>('')
+    const [shipClassValue, setShipClassValue] = useState<string>('')
+    const [shipLevelValue, setShipLevelValue] = useState<string>('')
+
+    const { vehicles } = useAppSelector(state => state.vehicles)
+    const filterDispatch = useAppDispatch()
+    const fetchDataDispatch = useAppDispatch()
+
+    const nationSelect: string[] = vehicles.map((item) => item.nation.title)
+    const levelSelect: number[] = vehicles.map((item) => (item.level))
+    const classSelect: string[] = vehicles.map((item) => item.type.title)
+
+    const handleFilterNation = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
+        filterDispatch(filteredNation(e.target.value))
+        setShipNationValue(e.target.value)
+    }
+
+    const handleFilterClass = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
+        filterDispatch(filteredClass(e.target.value))
+        setShipClassValue(e.target.value)
+    }
+
+    const handleFilterLevel = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
+        const level = Number(e.target.value)
+        filterDispatch(filteredNation(e.target.value))
+        filterDispatch(filteredLevel(level))
+        setShipLevelValue(e.target.value)
+    }
+
+    const handleReset = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault()
+        fetchDataDispatch(fetchVehicles())
+        setShipNationValue('')
+        setShipLevelValue('')
+        setShipClassValue('')
+    }
+
+    return (
+        <div className='ships__filter mb-5 d-flex flex-row gap-4'>
+            <FilterSelect
+                className='ships__filter-nation form-select'
+                options={removeDoubleString(nationSelect)}
+                onChange={handleFilterNation}
+                defaultName='Выберите страну'
+                valueSelect={shipNationValue}
+            />
+            <FilterSelect
+                className='ships__filter-level form-select'
+                options={sortNumbers(removeDoubleNumber(levelSelect))}
+                onChange={handleFilterLevel}
+                defaultName='Выберите уровень'
+                valueSelect={shipLevelValue}
+            />
+            <FilterSelect
+                className='ships__filter-class form-select'
+                options={removeDoubleString(classSelect)}
+                onChange={handleFilterClass}
+                defaultName='Выберите класс'
+                valueSelect={shipClassValue}
+            />
+            <ButtonUi
+                className='ships__filter-reset btn btn-primary'
+                onClick={handleReset}
+                buttonName='Сбросить'
+            />
+        </div>
+    )
+}
+
+export default Filter

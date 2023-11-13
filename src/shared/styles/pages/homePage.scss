@@ -1,0 +1,45 @@
+.home {
+	.home__content {
+		.home__title {
+			@include textStyle(600, 35px, 35px, #fff)
+		}
+
+		.home__card {
+			border-radius: 5px;
+			border: 1px solid $aquamarineColor;
+
+			.home__card-author {
+				@include textStyle(500, 30px, 30px, #fff);
+
+				span {
+					@include textStyle(500, 30px, 30px, $aquamarineColor);
+				}
+			}
+			.home__card-contact {
+				.home__contact-email {
+					@include textStyle(400, 25px, 25px, #fff);
+
+					.home__contact-link {
+						cursor: pointer;
+					}
+				}
+
+				.home__contact-tel {
+					@include textStyle(400, 25px, 25px, #fff);
+
+					.home__contact-link {
+						cursor: pointer;
+					}
+				}
+			}
+			.home__card-stack {
+				.home__stack-title {
+					@include textStyle(600, 35px, 35px, #fff)
+				}
+				.home__card-stack_item {
+					@include textStyle(400, 25px, 25px, $aquamarineColor)
+				}
+			}
+		}
+	}
+}

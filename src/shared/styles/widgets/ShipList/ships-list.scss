@@ -1,0 +1,46 @@
+.ships__items {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	gap: 25px;
+	list-style: none;
+
+	.ship__item {
+		border-bottom: 1px solid $aquamarineColor;
+
+		.ship__card {
+			display: flex;
+			flex-flow: row;
+			justify-content: center;
+
+			.ship__name {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+
+				.ship__title {
+					margin: 0;
+					@include textStyle(600, 30px, 30px, $aquamarineColor);
+				}
+			}
+			.ship__content {
+				.ship__description {
+					@include textStyle(400, 20px, 20px, #fff);
+				}
+
+				.ship__nation-info {
+
+				}
+
+				.v-info {
+					@include textStyle(400, 20px, 20px, #fff);
+
+					span {
+						@include textStyle(400, 20px, 20px, $aquamarineColor)
+					}
+				}
+			}
+		}
+	}
+}
