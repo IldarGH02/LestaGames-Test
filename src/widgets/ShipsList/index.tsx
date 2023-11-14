@@ -11,7 +11,7 @@ const ShipsList = () => {
 
     useEffect(() => {
         fetchDataDispatch(fetchVehicles())
-    },[])
+    },[fetchDataDispatch])
 
     if(isLoading) {
         return <Loading/>

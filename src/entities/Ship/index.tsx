@@ -16,7 +16,7 @@ const Ship: React.FC<IItem> = ({vehicle}) => {
                     <h3 className='ship__title'>
                         {vehicle.title}
                     </h3>
-                    <img src={shipLogo}/>
+                    <img src={shipLogo} alt={vehicle.title}/>
                 </div>
                 <div className="ship__content">
                     <p className="ship__description mb-4">
@@ -29,7 +29,7 @@ const Ship: React.FC<IItem> = ({vehicle}) => {
                         <p className="ship__nation mb-4 v-info">
                             Нация: <span>{vehicle.nation.title}</span>
                         </p>
-                        <img className='ship__nation-image' src={image}/>
+                        <img className='ship__nation-image' src={image}  alt={vehicle.type.title}/>
                     </div>
                     <p className="ship__level mb-4 v-info">
                         Уровень: <span>{vehicle.level}</span>
