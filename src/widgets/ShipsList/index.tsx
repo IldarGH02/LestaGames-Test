@@ -1,9 +1,9 @@
 import {IShip} from "../../app/types";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useAppDispatch, useAppSelector} from "../../features/hooks";
 import {fetchVehicles} from "../../app/store/shipsSlices";
 import Ship from "../../entities/Ship";
-import {Spinner} from "react-bootstrap";
+import {Loading} from "../../shared/ui/Loading";
 
 const ShipsList = () => {
     const {vehicles, isLoading, filteredShips, filter} = useAppSelector(state => state.vehicles)
@@ -14,11 +14,11 @@ const ShipsList = () => {
     },[])
 
     if(isLoading) {
-        return <Spinner/>
+        return <Loading/>
     }
 
     return (
-        <ul className='ships__items'>
+        <ul className='ships__items p-0'>
             {filter ? filteredShips.map(
                     (ship: IShip, index) => {
                         return <Ship vehicle={ship} key={ship.title + index}/>

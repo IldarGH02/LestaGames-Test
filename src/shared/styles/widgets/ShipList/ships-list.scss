@@ -1,6 +1,6 @@
 .ships__items {
 	display: flex;
-	flex-flow: row wrap;
+	flex-direction: column;
 	justify-content: center;
 	gap: 25px;
 	list-style: none;
@@ -9,10 +9,6 @@
 		border-bottom: 1px solid $aquamarineColor;
 
 		.ship__card {
-			display: flex;
-			flex-flow: row;
-			justify-content: center;
-
 			.ship__name {
 				display: flex;
 				flex-direction: column;

@@ -10,8 +10,8 @@ const Ship: React.FC<IItem> = ({vehicle}) => {
     const shipLogo = prepareLinks(vehicle.icons.medium)
 
     return (
-        <li className='ship__item'>
-            <div className="ship__card">
+        <li className='ship__item w-100'>
+            <div className="ship__card d-flex flex-row justify-content-between gap-3">
                 <div className="ship__name">
                     <h3 className='ship__title'>
                         {vehicle.title}

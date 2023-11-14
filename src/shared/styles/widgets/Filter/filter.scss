@@ -1,0 +1,17 @@
+.ships__filter-reset {
+	border: none;
+	background-color: $aquamarineColor;
+	transition:
+			color .3s ease-in-out,
+			background-color .3s
+			ease-in-out,
+			outline .3s ease-in-out;
+
+	@include textStyle(400, 17px, 19px, #fff);
+
+	&:hover {
+		background-color: #fff;
+		color: $aquamarineColor;
+		outline: 1px solid $aquamarineColor;
+	}
+}
