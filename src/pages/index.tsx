@@ -7,7 +7,7 @@ const RoutesPage = () => {
         <Routes>
             <Route path={'/'} element={<Layout/>}>
                 {routing.map(({path, element}) =>
-                    <Route path={path} element={element}/>
+                    <Route path={path} element={element} key={path}/>
                 )}
             </Route>
         </Routes>

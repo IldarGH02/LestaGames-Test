@@ -11,7 +11,8 @@ import {
     fetchVehicles,
     filteredClass,
     filteredLevel,
-    filteredNation
+    filteredNation,
+    resetFilter,
 } from "../../app/store/shipsSlices";
 
 
@@ -30,6 +31,12 @@ const Filter = () => {
 
     const handleFilterNation = (e: React.ChangeEvent<HTMLSelectElement>) => {
         e.preventDefault()
+
+        setShipLevelValue('')
+        setShipClassValue('')
+        filterDispatch(filteredClass(null))
+        filterDispatch(filteredLevel(null))
+
         filterDispatch(filteredNation(e.target.value))
         setShipNationValue(e.target.value)
     }
@@ -43,7 +50,6 @@ const Filter = () => {
     const handleFilterLevel = (e: React.ChangeEvent<HTMLSelectElement>) => {
         e.preventDefault()
         const level = Number(e.target.value)
-        filterDispatch(filteredNation(e.target.value))
         filterDispatch(filteredLevel(level))
         setShipLevelValue(e.target.value)
     }
@@ -54,6 +60,11 @@ const Filter = () => {
         setShipNationValue('')
         setShipLevelValue('')
         setShipClassValue('')
+
+        filterDispatch(filteredNation(null))
+        filterDispatch(filteredClass(null))
+        filterDispatch(filteredLevel(null))
+        filterDispatch(resetFilter(false))
     }
 
     return (
@@ -62,7 +73,7 @@ const Filter = () => {
                 className='ships__filter-nation form-select'
                 options={removeDoubleString(nationSelect)}
                 onChange={handleFilterNation}
-                defaultName='Выберите страну'
+                defaultName='Выберите нацию'
                 valueSelect={shipNationValue}
             />
             <FilterSelect
