@@ -1,5 +1,7 @@
+import React from "react";
+
 interface IOption {
-    option: string
+    option: string | number
 }
 
 const FilterOptions: React.FC<IOption> = ({option}) => {

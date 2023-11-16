@@ -1,9 +1,10 @@
-import React, {Suspense} from 'react'
-import {BrowserRouter} from "react-router-dom";
+import React, { Suspense } from 'react'
+import { BrowserRouter } from "react-router-dom";
+
 import RoutesPage from "../pages";
 import Header from "../widgets/Header";
 
-import {Spinner} from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 import './styles/index.scss'
 
 const App = () => {

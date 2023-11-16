@@ -1,12 +1,19 @@
-import {IShip} from "../../app/types";
-import {useEffect} from "react";
-import {useAppDispatch, useAppSelector} from "../../features/hooks";
-import {fetchVehicles} from "../../app/store/shipsSlices";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../features/hooks";
+
+import { fetchVehicles } from "../../app/store/shipsSlices";
+import { IShip } from "../../app/types";
+
 import Ship from "../../entities/Ship";
-import {Loading} from "../../shared/ui/Loading";
+import { Loading } from "../../shared/ui/Loading";
 
 const ShipsList = () => {
-    const {vehicles, isLoading, filteredShips, filter} = useAppSelector(state => state.vehicles)
+    const {
+        vehicles,
+        isLoading,
+        filteredShips,
+        filter
+    } = useAppSelector(state => state.vehicles)
     const fetchDataDispatch = useAppDispatch()
 
     useEffect(() => {

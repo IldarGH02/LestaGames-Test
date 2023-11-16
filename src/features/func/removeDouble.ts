@@ -9,6 +9,3 @@ export const removeDoubleNumber = (data: number[]) => {
         return data.indexOf(item) === index
     })
 }
-
-// data.filter((item, index) => {
-//     return data.indexOf(item) === index})

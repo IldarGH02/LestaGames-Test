@@ -1,6 +1,6 @@
-import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit'
-import {getShipsData} from "../../../shared/http/graphaqldata";
-import {IShip} from "../../types";
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { getShipsData } from "../../../shared/http/graphaqldata";
+import { IShip } from "../../types";
 
 export interface IStore {
     vehicles: IShip[]
@@ -43,7 +43,7 @@ export const vehiclesSlice = createSlice({
     name: 'vehicles',
     initialState,
     reducers: {
-        filteredNation: (state, action: PayloadAction<string | number>) => {
+        filteredNation: (state, action: PayloadAction<string>) => {
             state.filteredShips = state.vehicles.filter((item) => item.nation.title === action.payload);
             if(state.filteredShips) {
                 state.filter = true
@@ -87,6 +87,10 @@ export const vehiclesSlice = createSlice({
     }
 })
 
-export const { filteredNation, filteredLevel, filteredClass } = vehiclesSlice.actions
+export const {
+    filteredNation,
+    filteredLevel,
+    filteredClass
+} = vehiclesSlice.actions
 
 export default vehiclesSlice.reducer

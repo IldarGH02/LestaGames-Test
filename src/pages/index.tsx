@@ -1,5 +1,5 @@
-import {Route, Routes} from "react-router-dom";
-import {routing} from "../features/routing";
+import { Route, Routes } from "react-router-dom";
+import { routing } from "../features/routing";
 import Layout from "./Layout";
 
 const RoutesPage = () => {

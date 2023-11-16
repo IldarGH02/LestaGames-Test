@@ -1,5 +1,5 @@
-import {NavLink} from 'react-router-dom'
-import {HOME, SHIPS} from "../../features/constants";
+import { NavLink } from 'react-router-dom'
+import { HOME, SHIPS } from "../../features/constants";
 
 const Header = () => {
     return (

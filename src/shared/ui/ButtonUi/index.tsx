@@ -1,6 +1,8 @@
+import React from "react";
+
 interface IButton {
     className: string
-    onClick: any
+    onClick: React.MouseEventHandler<HTMLButtonElement>
     buttonName: string
 }
 

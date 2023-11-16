@@ -1,5 +1,7 @@
-import {IShip} from "../../app/types";
-import {prepareLinks} from "../../features/func/prepareLinks";
+import React from "react";
+
+import { IShip } from "../../app/types";
+import { prepareLinks } from "../../features/func/prepareLinks";
 
 interface IItem {
     vehicle: IShip

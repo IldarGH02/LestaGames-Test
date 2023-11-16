@@ -1,3 +1,5 @@
+import React from "react";
+
 interface ITitle {
     className: string,
     titleName: string

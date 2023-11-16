@@ -1,4 +1,4 @@
-import {Title} from "../../widgets/Title";
+import { Title } from "../../widgets/Title";
 
 const Home = () => {
     return (
@@ -13,10 +13,20 @@ const Home = () => {
 
                         <div className="home__card-contact">
                             <p className="home__contact-email">
-                                Email: <a className='home__contact-link text-decoration-none' type='email'>jackiechn@yandex.ru</a>
+                                Email:
+                                    <a className='home__contact-link text-decoration-none'
+                                       type='email'
+                                    >
+                                        jackiechn@yandex.ru
+                                    </a>
                             </p>
                             <p className="home__contact-tel">
-                                Телефон: <a className='home__contact-link text-decoration-none' type=':tel'>8(927)018-88-65</a>
+                                Телефон:
+                                    <a className='home__contact-link text-decoration-none'
+                                       type=':tel'
+                                    >
+                                        8(927)018-88-65
+                                    </a>
                             </p>
                         </div>
 

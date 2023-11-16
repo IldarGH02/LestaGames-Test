@@ -1,10 +1,19 @@
+import React, { useState } from "react";
+
+import { useAppDispatch, useAppSelector } from "../../features/hooks";
+import { sortNumbers } from "../../features/func/sortNumbers";
+import { removeDoubleString, removeDoubleNumber } from "../../features/func/removeDouble";
+
 import FilterSelect from "../../shared/select";
-import {useAppDispatch, useAppSelector} from "../../features/hooks";
-import {sortNumbers} from "../../features/func/sortNumbers";
-import React, {useState} from "react";
-import {ButtonUi} from "../../shared/ui/ButtonUi";
-import {fetchVehicles, filteredClass, filteredLevel, filteredNation} from "../../app/store/shipsSlices";
-import {removeDoubleString, removeDoubleNumber} from "../../features/func/removeDouble";
+import { ButtonUi } from "../../shared/ui/ButtonUi";
+
+import {
+    fetchVehicles,
+    filteredClass,
+    filteredLevel,
+    filteredNation
+} from "../../app/store/shipsSlices";
+
 
 const Filter = () => {
     const [shipNationValue, setShipNationValue] = useState<string>('')
@@ -19,19 +28,19 @@ const Filter = () => {
     const levelSelect: number[] = vehicles.map((item) => (item.level))
     const classSelect: string[] = vehicles.map((item) => item.type.title)
 
-    const handleFilterNation = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFilterNation = (e: React.ChangeEvent<HTMLSelectElement>) => {
         e.preventDefault()
         filterDispatch(filteredNation(e.target.value))
         setShipNationValue(e.target.value)
     }
 
-    const handleFilterClass = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFilterClass = (e: React.ChangeEvent<HTMLSelectElement>) => {
         e.preventDefault()
         filterDispatch(filteredClass(e.target.value))
         setShipClassValue(e.target.value)
     }
 
-    const handleFilterLevel = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFilterLevel = (e: React.ChangeEvent<HTMLSelectElement>) => {
         e.preventDefault()
         const level = Number(e.target.value)
         filterDispatch(filteredNation(e.target.value))

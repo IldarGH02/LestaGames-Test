@@ -1,13 +1,8 @@
-// import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
-//
-// export const client = new ApolloClient({
-//     uri: 'https://vortex.korabli.su/api/graphql/glossary/',
-//     cache: new InMemoryCache(),
-// });
-
 import { gql } from 'urql'
 import { request } from 'graphql-request'
-import {IShip} from "../../app/types";
+import { IShip } from "../../app/types";
+
+const API_URL = process.env.REACT_APP_PUBLIC_API_URL
 
 export const getShipsData = async(): Promise<IShip[]> => {
     const shipsQuery = gql`
@@ -40,7 +35,7 @@ export const getShipsData = async(): Promise<IShip[]> => {
           }
         }
     `
-    const result = await request('https://vortex.korabli.su/api/graphql/glossary/', shipsQuery)
+    const result = await request(`${API_URL}`, shipsQuery)
 
     return result.vehicles
 }
